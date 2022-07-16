@@ -2,4 +2,24 @@
   width: 100%;
   border: 2px solid $colorSecondary;
   padding: 10px;
+
+  &__list {}
+}
+
+.card {
+  width: 200px;
+  display: inline-block;
+
+  &__title {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    width: 200px;
+    height: 300px;
+  }
+
 }
