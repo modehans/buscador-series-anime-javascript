@@ -1,32 +1,34 @@
-# **Evaluación intermedia módulo 2**
+# **Evaluación final módulo 2**
 
-## Enunciado:
+El ejercicio consiste en desarrollar una aplicación web de búsqueda de series de anime, que nos permite des/marcar las series como favoritas y guardarlas en local storage.
+El ejercicio también tiene una parte de maquetación con HTML y Sass.
 
-El ejercicio consiste en crear una página para adivinar un número. Los puntos obligatorios a resolver:
+## Peticiones del ejercicio:
 
-1. Maquetar Html.
+1. Crear estructura básica de HTML. Con un campo de texto un botón para buscar series por su título y un listado de resultados de búsqueda donde aparece el cartel de la serie y el título.
 
-2. Crear el css mínimo.
+2. Al hacer clic sobre el botón de Buscar, la aplicación debe conectarse al API abierto de Jikan para la búsqueda de series de anime.
 
-3. Crear generador de números aleatorios al cargar la página y guardarlo en una constante.
+3. Recoger el texto introducido por la usuaria.
 
-4. Mostrar en la consola el número generado
+4. Introducir el texto en la dirección de la API.
 
-5. Declarar variables en JS.
+5. Pintar una tarjeta por cada serie encontrada, mostrando TITULO e IMAGEN, que devuelve la API.
 
-6. Recoger el valor de la usuaria al hacer click en botón _Prueba_ y mostarlo en la consola.
+6. Detectar cuando la imagen no es específica de la serie y sustituirla por una imagen de placeholder.com donde en la propia URL indicamos el tamaño, colores, texto.
 
-7. Comparar el número de la jugadora con el número aleatorios
+7. Pintar la información en la página.
 
-8. Escribir la pista según se cumpla una u otra condición al hacer click en _Prueba_
+8. Selección de serie como favorita. Visualizándolo intercambiando el color de fondo y la fuente.
 
-9. Actualizar el contador de juego y visualizar en la parte inferior cada vez que se pulse prueba.
+9. Crear sección de favoritas a la izquierda debajo del formulario de la página(array favoritas). las imágenes de favoritas se mantienen visibles aunque se realice otra búsqueda.
+10. Almacenar el listado de favoritos en el localStorage. Al recargar se debe mostrar.
 
 ## Bonus
 
-1. Al pulsar el botón empieza de nuevo, se vacia el input de entrada, se genera un nuevo número aleatorio, el contador vuelve a 0 y aparece un nuevo mensaje en el espacio de pistas.
-2. Al hacer click en el input vacía la entrada.
-3. Después de introducir un número si pulsamos intro en el teclado se procesa igual que si ubiera pulsado el botón prueba.
-4. Comentarios cuando no es un número o cuando el n
-   úmero no está dentro del rango.
-5. Cuando no es un número o no se ha introducido ningún valor al pulsar probar o intro no aumenta el contador.
+- Borrar favoritos al hacer click en una 'x' al lado de cada favorito, borrándolo del favorito y del localStorage.
+- En la parte de búsqueda cuando aparezca una serie que tenemos en como favorita, que se vea resaltada y que podamos añadirla o quitarla de esa sección.
+- Botón de borrado completo de favoritos.
+- Dar estilos a la maquetación.
+
+> Written with [StackEdit](https://stackedit.io/).

@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/230b0b22f9.js"
+    crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -12,11 +14,20 @@
     rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/styles.css" />
   <link rel="icon" href="./assets/images/favicon.png" />
-  <title>Ejericio</title>
+  <title>Buscador de series anime</title>
 </head>
 
 <body>
-
+  <include src="./partials/header.html"></include>
+  <main>
+    <include src="./partials/form.html"></include>
+    <section>
+      <include src="./partials/favorites.html"></include>
+      <include src="./partials/results.html"></include>
+    </section>
+  </main>
+  <include src="./partials/footer.html"></include>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
