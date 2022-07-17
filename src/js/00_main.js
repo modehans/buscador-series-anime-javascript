@@ -3,6 +3,19 @@ const userInput = document.querySelector('.js_userInput');
 const buttonSearch = document.querySelector('.js_buttonSearch');
 const resultsSearch = document.querySelector('.js_resultsSearch');
 let seriesSearch = [];
+let favorites = [];
+
+const handleClickFavorite = (ev) => {
+  const idSelected = parseInt(ev.currentTarget.id);
+  console.log(idSelected);
+};
+
+const listenerCards = () => {
+  const listCards = document.querySelectorAll('.js-card');
+  listCards.forEach((element) => {
+    element.addEventListener('click', handleClickFavorite);
+  });
+};
 
 const renderCards = (arrayData) => {
   let html = '';
@@ -22,6 +35,7 @@ const renderCards = (arrayData) => {
   }
   resultsSearch.innerHTML = html;
 };
+
 const rendertListSeries = () => {
   const nameUserSerie = userInput.value.toLowerCase();
   fetch(`https://api.jikan.moe/v4/anime?q=${nameUserSerie}`)
@@ -34,6 +48,7 @@ const rendertListSeries = () => {
       }));
       renderCards(seriesSearch);
       console.log(seriesSearch);
+      listenerCards();
     });
 };
 const handleClickSearch = (ev) => {
