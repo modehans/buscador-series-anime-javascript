@@ -2,20 +2,9 @@
 const userInput = document.querySelector('.js_userInput');
 const buttonSearch = document.querySelector('.js_buttonSearch');
 const resultsSearch = document.querySelector('.js_resultsSearch');
+const favoriteList = document.querySelector('.js_favoriteList');
 let seriesSearch = [];
 let favorites = [];
-
-const handleClickFavorite = (ev) => {
-  const idSelected = parseInt(ev.currentTarget.id);
-  console.log(idSelected);
-};
-
-const listenerCards = () => {
-  const listCards = document.querySelectorAll('.js-card');
-  listCards.forEach((element) => {
-    element.addEventListener('click', handleClickFavorite);
-  });
-};
 
 const renderCards = (arrayData) => {
   let html = '';
@@ -24,7 +13,7 @@ const renderCards = (arrayData) => {
 
   for (const oneSerie of arrayData) {
     const newImage = `https://via.placeholder.com/210x295/fc9303/666666/?text=${oneSerie.title}`;
-    html += ` <div class="card js-card">`;
+    html += ` <div class="card js-card" id="${oneSerie.id}">`;
     html += ` <h3 class="card__title">${oneSerie.title}</h3>`;
     if (oneSerie.image === imageNotFound) {
       html += ` <img class="card__image" src="${newImage}"/>`;
@@ -33,10 +22,15 @@ const renderCards = (arrayData) => {
     }
     html += `</div>`;
   }
-  resultsSearch.innerHTML = html;
+  return html;
 };
 
-const rendertListSeries = () => {
+const renderCardsSearch = () => {
+  resultsSearch.innerHTML = renderCards(seriesSearch);
+  listenerCards();
+};
+
+const renderSearchSeries = () => {
   const nameUserSerie = userInput.value.toLowerCase();
   fetch(`https://api.jikan.moe/v4/anime?q=${nameUserSerie}`)
     .then((response) => response.json())
@@ -46,14 +40,39 @@ const rendertListSeries = () => {
         title: title,
         image: images.jpg.image_url,
       }));
-      renderCards(seriesSearch);
-      console.log(seriesSearch);
-      listenerCards();
+      renderCardsSearch();
     });
 };
+
+const renderFavSeries = () => {
+  favoriteList.innerHTML = renderCards(favorites);
+  listenerCards();
+};
+
+const handleClickFavorite = (ev) => {
+  const selectedId = parseInt(ev.currentTarget.id);
+  console.log(selectedId);
+  const favSerie = seriesSearch.find((serie) => serie.id === selectedId);
+  const favoriteFound = favorites.findIndex((fav) => fav.id === selectedId);
+  if (favoriteFound === -1) {
+    favorites.push(favSerie);
+  } else {
+    favorites.splice(favSerie, 1);
+  }
+  console.log(favorites);
+  renderFavSeries();
+};
+
+const listenerCards = () => {
+  const listCards = document.querySelectorAll('.js-card');
+  listCards.forEach((element) => {
+    element.addEventListener('click', handleClickFavorite);
+  });
+};
+
 const handleClickSearch = (ev) => {
   ev.preventDefault();
-  rendertListSeries();
+  renderSearchSeries();
 };
 
 const handleEnterKey = (ev) => {
