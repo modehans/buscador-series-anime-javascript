@@ -10,7 +10,8 @@ const handleClickSearch = (ev) => {
         image: images.jpg.image_url,
       }));
       renderCardsSearch();
-    });
+    })
+    .catch((error) => console.log(`Ha sucedido un error: ${error}`));
 };
 
 const handleClickFavorite = (ev) => {
@@ -25,6 +26,7 @@ const handleClickFavorite = (ev) => {
   console.log(favorites);
   renderFavSeries();
   renderCardsSearch();
+  localStorage.setItem('data', JSON.stringify(favorites));
 };
 
 const handleEnterKey = (ev) => {

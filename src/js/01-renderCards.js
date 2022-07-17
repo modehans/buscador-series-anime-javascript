@@ -7,7 +7,6 @@ const renderCards = (arrayData) => {
   for (const oneSerie of arrayData) {
     const newImage = `https://via.placeholder.com/210x295/fc9303/666666/?text=${oneSerie.title}`;
     const favBackground = favorites.findIndex((fav) => fav.id === oneSerie.id);
-    console.log('fondo', favBackground);
     if (favBackground !== -1) {
       classFavorite = 'favorite';
     } else {
