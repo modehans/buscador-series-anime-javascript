@@ -13,15 +13,12 @@ const renderCards = (arrayData) => {
     const newImage = `https://via.placeholder.com/210x295/fc9303/666666/?text=${oneSerie.title}`;
     html += ` <div class="card js-card">`;
     html += ` <h3 class="card__title">${oneSerie.title}</h3>`;
-    if (oneSerie.image === imageNotFound) {
-      html += ` <img class="card__image" src="${newImage}"/>`;
-    } else {
-      html += ` <img class="card__image" src="${oneSerie.image}"/>`;
-    }
+    html += ` <div clas="photo" style="background-image: url('${oneSerie.image}')"></div>`;
     html += `</div>`;
   }
   resultsSearch.innerHTML = html;
 };
+
 const rendertListSeries = () => {
   const nameUserSerie = userInput.value.toLowerCase();
   fetch(`https://api.jikan.moe/v4/anime?q=${nameUserSerie}`)
