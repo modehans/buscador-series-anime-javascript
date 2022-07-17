@@ -8,12 +8,20 @@ let favorites = [];
 
 const renderCards = (arrayData) => {
   let html = '';
+  let classFavorite = '';
   const imageNotFound =
     'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png';
 
   for (const oneSerie of arrayData) {
     const newImage = `https://via.placeholder.com/210x295/fc9303/666666/?text=${oneSerie.title}`;
-    html += ` <div class="card js-card" id="${oneSerie.id}">`;
+    const favBackground = favorites.findIndex((fav) => fav.id === oneSerie.id);
+    console.log('fondo', favBackground);
+    if (favBackground !== -1) {
+      classFavorite = 'favorite';
+    } else {
+      classFavorite = '';
+    }
+    html += ` <div class="card js-card ${classFavorite}" id="${oneSerie.id}">`;
     html += ` <h3 class="card__title">${oneSerie.title}</h3>`;
     if (oneSerie.image === imageNotFound) {
       html += ` <img class="card__image" src="${newImage}"/>`;
@@ -27,7 +35,7 @@ const renderCards = (arrayData) => {
 
 const renderCardsSearch = () => {
   resultsSearch.innerHTML = renderCards(seriesSearch);
-  listenerCards();
+  cardListener();
 };
 
 const renderSearchSeries = () => {
@@ -46,24 +54,24 @@ const renderSearchSeries = () => {
 
 const renderFavSeries = () => {
   favoriteList.innerHTML = renderCards(favorites);
-  listenerCards();
+  cardListener();
 };
 
 const handleClickFavorite = (ev) => {
   const selectedId = parseInt(ev.currentTarget.id);
-  console.log(selectedId);
   const favSerie = seriesSearch.find((serie) => serie.id === selectedId);
   const favoriteFound = favorites.findIndex((fav) => fav.id === selectedId);
   if (favoriteFound === -1) {
     favorites.push(favSerie);
   } else {
-    favorites.splice(favSerie, 1);
+    favorites.splice(favoriteFound, 1);
   }
   console.log(favorites);
   renderFavSeries();
+  renderCardsSearch();
 };
 
-const listenerCards = () => {
+const cardListener = () => {
   const listCards = document.querySelectorAll('.js-card');
   listCards.forEach((element) => {
     element.addEventListener('click', handleClickFavorite);
