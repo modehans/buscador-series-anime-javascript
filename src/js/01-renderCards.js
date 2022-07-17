@@ -13,12 +13,12 @@ const renderCards = (arrayData) => {
       classFavorite = '';
     }
     html += ` <div class="card js-card ${classFavorite}" id="${oneSerie.id}">`;
-    html += ` <h3 class="card__title">${oneSerie.title}</h3>`;
     if (oneSerie.image === imageNotFound) {
       html += ` <img class="card__image" src="${newImage}"/>`;
     } else {
       html += ` <img class="card__image" src="${oneSerie.image}"/>`;
     }
+    html += ` <h3 class="card__title">${oneSerie.title}</h3>`;
     html += `</div>`;
   }
   return html;

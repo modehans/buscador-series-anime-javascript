@@ -1,9 +1,25 @@
 .favorites {
-  width: 30%;
+  width: 200px;
   border: 2px solid $colorSecondary;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 10px;
-  min-width: 220px;
+  gap: 10px;
+
+  .card {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    gap: 10px;
+
+    &__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__image {
+      width: 30%;
+    }
+  }
 }

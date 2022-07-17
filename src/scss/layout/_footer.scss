@@ -1,7 +1,8 @@
 .footer {
-  height: 5vh;
+  height: 10vh;
   font-family: $font-main;
   color: $colorPrincipal;
   display: flex;
-  padding: 10px;
+  align-items: center;
+  padding: 0 20px;
 }
