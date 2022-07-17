@@ -1,3 +1,4 @@
+'use strict';
 const renderCards = (arrayData) => {
   let html = '';
   let classFavorite = '';

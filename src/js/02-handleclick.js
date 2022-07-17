@@ -1,3 +1,4 @@
+'use strict';
 const handleClickSearch = (ev) => {
   ev.preventDefault();
   const nameUserSerie = userInput.value.toLowerCase();

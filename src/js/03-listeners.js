@@ -1,3 +1,4 @@
+'use strict';
 const cardListener = () => {
   const listCards = document.querySelectorAll('.js-card');
   listCards.forEach((element) => {
