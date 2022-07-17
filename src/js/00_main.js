@@ -10,29 +10,35 @@ const renderCards = (arrayData) => {
     'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png';
 
   for (const oneSerie of arrayData) {
-    let urlImageSerie = `${oneSerie.images.jpg.image_url}`;
-    const newImage = `https://via.placeholder.com/210x295/ffffff/666666/?text=${oneSerie.title}`;
+    const newImage = `https://via.placeholder.com/210x295/fc9303/666666/?text=${oneSerie.title}`;
     html += ` <div class="card js-card">`;
     html += ` <h3 class="card__title">${oneSerie.title}</h3>`;
-    if (urlImageSerie === imageNotFound) {
+    if (oneSerie.image === imageNotFound) {
       html += ` <img class="card__image" src="${newImage}"/>`;
     } else {
-      html += ` <img class="card__image" src="${urlImageSerie}"/>`;
+      html += ` <img class="card__image" src="${oneSerie.image}"/>`;
     }
     html += `</div>`;
   }
   resultsSearch.innerHTML = html;
 };
-
-const handleClickSearch = (ev) => {
-  ev.preventDefault();
+const rendertListSeries = () => {
   const nameUserSerie = userInput.value.toLowerCase();
   fetch(`https://api.jikan.moe/v4/anime?q=${nameUserSerie}`)
     .then((response) => response.json())
     .then((json) => {
-      seriesSearch = json.data;
+      seriesSearch = json.data.map(({ mal_id, title, images }) => ({
+        id: mal_id,
+        title: title,
+        image: images.jpg.image_url,
+      }));
       renderCards(seriesSearch);
+      console.log(seriesSearch);
     });
+};
+const handleClickSearch = (ev) => {
+  ev.preventDefault();
+  rendertListSeries();
 };
 
 const handleEnterKey = (ev) => {
