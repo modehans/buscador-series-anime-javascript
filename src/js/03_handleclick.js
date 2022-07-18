@@ -36,3 +36,10 @@ const handleEnterKey = (ev) => {
     handleClickSearch(ev);
   }
 };
+
+const handleDeleteFavorites = (ev) => {
+  ev.preventDefault();
+  favorites = [];
+  renderFavSeries();
+  saveLocalStorage();
+};

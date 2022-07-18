@@ -6,7 +6,7 @@ const renderCards = (arrayData) => {
     'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png';
 
   for (const oneSerie of arrayData) {
-    const newImage = `https://via.placeholder.com/210x295/fc9303/666666/?text=${oneSerie.title}`;
+    const newImage = `https://via.placeholder.com/210x295/816f9f/000000/?text=${oneSerie.title}`;
     const favBackground = favorites.findIndex((fav) => fav.id === oneSerie.id);
     if (favBackground !== -1) {
       classFavorite = 'favoriteSlect';

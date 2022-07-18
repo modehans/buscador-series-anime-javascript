@@ -5,6 +5,7 @@ const cardListener = () => {
     element.addEventListener('click', handleClickFavorite);
   });
 };
-
 buttonSearch.addEventListener('click', handleClickSearch);
+userInput.addEventListener('keyup', handleClickSearch);
 userInput.addEventListener('keypress', handleEnterKey);
+buttonDeleteFavorites.addEventListener('click', handleDeleteFavorites);
