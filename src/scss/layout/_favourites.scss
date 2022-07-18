@@ -1,6 +1,6 @@
-.favorites {
-  min-width: 120px;
-  max-width: 300px;
+.favourites {
+  min-width: 150px;
+  width: 30%;
   border: 2px solid $colorPrincipal;
   border-radius: 5px;
   display: flex;
@@ -8,22 +8,19 @@
   gap: 20px;
 
   .listCards {
-    margin: 10px;
-    display: flex;
     flex-direction: column;
-    gap: 10px;
   }
 
   .card {
     display: flex;
-    border: none;
-    gap: 10px;
+    gap: 5px;
 
     &__image {
       width: 30%;
     }
 
     &__title3 {
+      min-width: 70px;
       flex: 1;
       font-size: 14px;
     }

@@ -31,5 +31,3 @@ El ejercicio también tiene una parte de maquetación con HTML y Sass.
 - En la parte de búsqueda cuando aparezca una serie que tenemos en como favorita, que se vea resaltada y que podamos añadirla o quitarla de esa sección.
 - Botón de borrado completo de favoritos.
 - Dar estilos a la maquetación.
-
-> Written with [StackEdit](https://stackedit.io/).

@@ -4,13 +4,10 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
 
   .listCards {
-    display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
   }
 
   .card {
