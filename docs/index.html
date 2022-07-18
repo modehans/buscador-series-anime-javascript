@@ -21,25 +21,23 @@
   <header class="header">
     <h1>Busca tus series favoritas de anime</h1>
   </header>
-  <main>
+  <main class="container">
     <form class="form" action="">
       <input class="js_userInput" type="text" name="search" id="search"
         placeholder="Introduce un nombre" />
-      <input class="js_buttonSearch" type="button" value="Buscar" />
-      <input type="reset" value="Borrar" />
+      <input class="button js_buttonSearch" type="button" value="Buscar" />
+      <input class="button" type="reset" value="Borrar" />
     </form>
     <section class="viewCards">
       <aside class="favorites">
-        <section>
-          <h2>Series favoritas</h2>
-          <ul class="js_favoriteList">
-          </ul>
-        </section>
-        <button>Borrar Favoritas</button>
+        <h2>Series favoritas</h2>
+        <ul class="favorites__List js_favoriteList">
+        </ul>
+        <button class="button">Borrar Favoritas</button>
       </aside>
       <Section class="results">
         <h2>Resultados</h2>
-        <ul class="result__list js_resultsSearch">
+        <ul class="results__List js_resultsSearch">
           <img src="" alt="">
         </ul>
       </Section>

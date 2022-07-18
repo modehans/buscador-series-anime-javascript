@@ -9,7 +9,7 @@ const renderCards = (arrayData) => {
     const newImage = `https://via.placeholder.com/210x295/fc9303/666666/?text=${oneSerie.title}`;
     const favBackground = favorites.findIndex((fav) => fav.id === oneSerie.id);
     if (favBackground !== -1) {
-      classFavorite = 'favorite';
+      classFavorite = 'favoriteSlect';
     } else {
       classFavorite = '';
     }

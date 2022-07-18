@@ -27,7 +27,7 @@ const handleClickFavorite = (ev) => {
   console.log(favorites);
   renderFavSeries();
   renderCardsSearch();
-  localStorage.setItem('data', JSON.stringify(favorites));
+  saveLocalStorage();
 };
 
 const handleEnterKey = (ev) => {

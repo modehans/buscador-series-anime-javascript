@@ -1,13 +1,26 @@
 .viewCards {
-  border: solid 2px red;
+  min-height: 75vh;
   width: 100%;
   display: flex;
   font-family: $font-main;
   gap: 10px;
-  padding: 10px;
   color: $colorPrincipal;
+
 }
 
-.favorite {
-  background-color: $colorSecondary;
+.favoriteSlect {
+  border: solid 3px $colorSecondary;
+  border-radius: 5px;
+}
+
+.button {
+  border: 2px solid $colorPrincipal;
+  border-radius: 5px;
+  color: $colorPrincipal;
+  padding: 3px;
+  background: tranparent;
+}
+
+.container {
+  padding: 0 20px;
 }
