@@ -9,18 +9,38 @@
 }
 
 .favoriteSlect {
-  border: solid 3px $colorSecondary;
+  border: solid 4px $colorSecondary;
   border-radius: 5px;
 }
 
 .button {
+  max-width: 120px;
   border: 2px solid $colorPrincipal;
   border-radius: 5px;
   color: $colorPrincipal;
   padding: 3px;
-  background: tranparent;
+
 }
 
 .container {
   padding: 0 20px;
+}
+
+.card__title3 {
+  display: flex;
+  align-items: center;
+}
+
+.iconDelete {
+  display: none;
+}
+
+.title2 {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: plum;
 }

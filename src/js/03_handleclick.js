@@ -24,10 +24,14 @@ const handleClickFavorite = (ev) => {
   } else {
     favorites.splice(favoriteFound, 1);
   }
-  console.log(favorites);
   renderFavSeries();
   renderCardsSearch();
   saveLocalStorage();
+};
+const handleIconDelete = (ev) => {
+  console.log(ev.currentTarget);
+  const icon = ev.currentTarget.nameIcon;
+  console.log(icon);
 };
 
 const handleEnterKey = (ev) => {
@@ -37,7 +41,7 @@ const handleEnterKey = (ev) => {
   }
 };
 
-const handleDeleteFavorites = (ev) => {
+const handleDeleteAllFavorites = (ev) => {
   ev.preventDefault();
   favorites = [];
   renderFavSeries();

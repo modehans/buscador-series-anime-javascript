@@ -1,34 +1,30 @@
 .results {
   border: 2px solid $colorPrincipal;
   border-radius: 5px;
-  padding: 10px;
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
 
-  &__List {
+  .listCards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+  }
 
-    .card {
-      width: 200px;
-      display: flex;
-      flex-direction: column;
+  .card {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
 
-      &__image {
-        height: 250px;
-      }
+    &__image {
+      height: 250px;
+    }
 
-      &__title {
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
+    &__title3 {
+      height: 60px;
+      justify-content: center;
     }
   }
 }

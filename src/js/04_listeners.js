@@ -5,7 +5,14 @@ const cardListener = () => {
     element.addEventListener('click', handleClickFavorite);
   });
 };
+const iconDeleteListener = () => {
+  const iconsDelete = document.querySelectorAll('.js-iconDelete');
+  iconsDelete.forEach((element) => {
+    element.addEventListener('click', handleIconDelete);
+    console.log('icons', iconsDelete);
+  });
+};
+
 buttonSearch.addEventListener('click', handleClickSearch);
-userInput.addEventListener('keyup', handleClickSearch);
 userInput.addEventListener('keypress', handleEnterKey);
-buttonDeleteFavorites.addEventListener('click', handleDeleteFavorites);
+buttonDeleteAllFav.addEventListener('click', handleDeleteAllFavorites);
