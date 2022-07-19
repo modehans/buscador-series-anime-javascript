@@ -1,14 +1,17 @@
 .container {
   padding: 0 10px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .viewCards {
-  min-height: 75vh;
   width: 100%;
   display: flex;
   font-family: $font-main;
   gap: 10px;
   color: $colorPrincipal;
+  flex: 1;
 }
 
 .title2 {
@@ -18,11 +21,11 @@
   align-items: center;
   font-size: 20px;
   font-weight: 700;
-  background-color: plum;
+  background-color: $colorSecondary;
 }
 
 .favouriteSelect {
-  border: solid 4px $colorSecondary;
+  border: solid 4px $colorHighLight;
   border-radius: 5px;
 }
 

@@ -14,7 +14,7 @@ const saveLocalStorage = () => {
 
 const renderCardResult = () => {
   resultsSearch.innerHTML = renderCards(seriesSearch, true);
-  cardListener();
+  cardResultListener();
 };
 
 const renderFavSeries = () => {
@@ -72,7 +72,9 @@ const handleDeleteAllFavourites = (ev) => {
   saveLocalStorage();
 };
 
-const cardListener = () => {
+//listener
+
+const cardResultListener = () => {
   const listCards = document.querySelectorAll('.js-card-resultCard');
   listCards.forEach((element) => {
     element.addEventListener('click', handleClickFavourite);
@@ -90,6 +92,7 @@ buttonSearch.addEventListener('click', handleClickSearch);
 userInput.addEventListener('keypress', handleEnterKey);
 buttonDeleteAllFav.addEventListener('click', handleDeleteAllFavourites);
 
+//Al cargar la página
 const onLoad = () => {
   favourites = JSON.parse(localStorage.getItem('data'));
   if (favourites === null) {

@@ -1,11 +1,9 @@
 .form {
 
-  font-family: $font-main;
-}
-
-.inputSerieUser {
-  width: 40vw;
-  border: 2px solid $colorPrincipal;
-  border-radius: 5px;
-  padding: 5px;
+  .inputSerieUser {
+    width: 40vw;
+    border: 2px solid $colorPrincipal;
+    border-radius: 5px;
+    padding: 5px;
+  }
 }
