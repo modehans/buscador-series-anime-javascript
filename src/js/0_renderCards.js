@@ -21,7 +21,7 @@ const renderCards = (dataList, isResultCard) => {
 
     html += ` <li class="card js-card-${classCardType} ${favClassName}" id="card-${item.id}">`;
     if (item.image === imageNotFound) {
-      html += ` <img class="card__image" style="background-image: url(${newImage}+${item.title})" alt="Portada de ${item.title}"/>`;
+      html += ` <div class="card__image" style="background-image: url('${newImage}+${item.title}')" alt="Portada de ${item.title}"></div>`;
     } else {
       html += ` <div class="card__image" style="background-image: url(${item.image})" alt="Portada de ${item.title}"/> </div>`;
     }
