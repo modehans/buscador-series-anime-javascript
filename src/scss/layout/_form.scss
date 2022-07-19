@@ -1,5 +1,8 @@
 .form {
-  height: 5vh;
-  font-family: $font-main;
-  padding: 10px;
+  .inputSerieUser {
+    width: 40vw;
+    border: 2px solid $colorPrincipal;
+    border-radius: 5px;
+    padding: 5px;
+  }
 }

@@ -1,24 +1,28 @@
 .results {
-  width: 100%;
-  border: 2px solid $colorSecondary;
-  padding: 10px;
+  border: 2px solid $colorPrincipal;
+  border-radius: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .listCards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 .card {
   width: 200px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 
-  &__title {
-    height: 80px;
-    display: flex;
+  &__image {
+    height: 250px;
+  }
+
+  &__title3 {
+    height: 60px;
     justify-content: center;
-    align-items: center;
   }
 }
-
-.photo {
-  width: 200px;
-  height: 300px;
-  background-repeat: no-repeat;
-  background-size: contain;
 }

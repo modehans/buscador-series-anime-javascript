@@ -1,0 +1,37 @@
+.favourites {
+  min-width: 150px;
+  width: 30%;
+  border: 2px solid $colorPrincipal;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .listCards {
+    flex-direction: column;
+  }
+
+  .card {
+    display: flex;
+    gap: 5px;
+
+    &__image {
+      width: 30%;
+    }
+
+    &__title3 {
+      min-width: 70px;
+      flex: 1;
+      font-size: 14px;
+    }
+  }
+
+  .iconDelete {
+    display: flex;
+    align-items: center;
+  }
+
+  .button {
+    align-self: center;
+  }
+}
