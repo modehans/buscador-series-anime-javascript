@@ -9,20 +9,20 @@
     flex-wrap: wrap;
     justify-content: center;
   }
-}
 
-.card {
-  width: 200px;
-  display: flex;
-  flex-direction: column;
 
-  &__image {
-    height: 250px;
+  .card {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+
+    &__image {
+      height: 250px;
+    }
+
+    &__title3 {
+      height: 60px;
+      justify-content: center;
+    }
   }
-
-  &__title3 {
-    height: 60px;
-    justify-content: center;
-  }
-}
 }
