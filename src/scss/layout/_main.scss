@@ -3,14 +3,14 @@
   min-height: 80vh;
   display: flex;
   flex-direction: column;
+  color: $colorPrincipal;
+  font-family: $font-main;
 }
 
 .viewCards {
   width: 100%;
   display: flex;
-  font-family: $font-main;
   gap: 10px;
-  color: $colorPrincipal;
   flex: 1;
 }
 
@@ -33,16 +33,11 @@
   display: flex;
   gap: 10px;
   padding: 10px;
-
 }
-
-
 
 .card {
   &__title3 {
     display: flex;
     align-items: center;
   }
-
-
 }
