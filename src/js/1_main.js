@@ -70,6 +70,7 @@ const handleDeleteAllFavourites = (ev) => {
   favourites = [];
   renderFavSeries();
   saveLocalStorage();
+  renderCardResult();
 };
 
 //listener
