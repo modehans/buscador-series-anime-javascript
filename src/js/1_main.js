@@ -3,6 +3,7 @@
 const userInput = document.querySelector('.js_userInput');
 const buttonSearch = document.querySelector('.js_buttonSearch');
 const resultsSearch = document.querySelector('.js_resultsSearch');
+const buttonLog = document.querySelector('.js_buttonLog');
 const favouriteList = document.querySelector('.js_favouriteList');
 const buttonDeleteAllFav = document.querySelector('.js_buttonDeleteFavourites');
 let seriesSearch = [];
@@ -22,16 +23,48 @@ const renderFavSeries = () => {
   iconDeleteListener();
 };
 
+async function otraForma() {
+  const response = await fetch(
+    `https://api.jikan.moe/v4/anime?q=${nameUserSerie}`
+  );
+  const json = await response.json();
+  let nextPage = json.pagination.current_page;
+
+  while (nextPage !== null) {
+    const response2 = await fetch(
+      `https://api.jikan.moe/v4/anime?q=${nameUserSerie}&page=${nextPage + 1}`
+    );
+    const json2 = await response2.json();
+    nextPage = json2.pagination.current_page;
+  }
+}
+
+/*
+fetch(`https://api.jikan.moe/v4/anime?q=${nameUserSerie}`)
+  .then((response) => response.json())
+  .then(procesarResultados);
+
+function procesarResultados(json) {
+  seriesSearch = seriesSearch.concat(json.data);
+  setTimeout(()=> {
+    fetch(`https://api.jikan.moe/v4/anime?q=${nameUserSerie}&page=${json.pagination.current_page+1}`)
+    .then((response) => response.json())
+    .then(procesarResultados);
+  }, 334);
+  
+}
+*/
 const handleClickSearch = (ev) => {
   ev.preventDefault();
   const nameUserSerie = userInput.value.toLowerCase();
   fetch(`https://api.jikan.moe/v4/anime?q=${nameUserSerie}`)
     .then((response) => response.json())
     .then((json) => {
-      seriesSearch = json.data.map(({ mal_id, title, images }) => ({
+      seriesSearch = json.data.map(({ mal_id, title, images, score }) => ({
         id: mal_id,
         title: title,
         image: images.jpg.image_url,
+        score: score,
       }));
 
       if (seriesSearch.length === 0) {
@@ -70,6 +103,10 @@ const handleDeleteAllFavourites = (ev) => {
   favourites = [];
   renderFavSeries();
   saveLocalStorage();
+  renderCardResult();
+};
+const handleClickLog = () => {
+  console.log(`Tienes ${favourites.length} favoritos`);
 };
 
 //listener
@@ -89,6 +126,7 @@ const iconDeleteListener = () => {
 };
 
 buttonSearch.addEventListener('click', handleClickSearch);
+buttonLog.addEventListener('click', handleClickLog);
 userInput.addEventListener('keypress', handleEnterKey);
 buttonDeleteAllFav.addEventListener('click', handleDeleteAllFavourites);
 

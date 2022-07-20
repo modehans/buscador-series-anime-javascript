@@ -28,6 +28,13 @@ const renderCards = (dataList, isResultCard) => {
     }
     html += `</div>`;
     html += ` <h3 class="card__title3">${item.title}</h3>`;
+    if (isResultCard) {
+      if (item.score > 7) {
+        html += `<p>Puntuación: ${item.score} Recomendada </p>`;
+      } else {
+        html += `<p>Puntuación: ${item.score} </p>`;
+      }
+    }
     if (!isResultCard) {
       html += ` <div class="iconDelete js-iconDelete" id="delete-${item.id}"><i class="  fa-solid fa-circle-xmark" ></i></div>`;
     }
