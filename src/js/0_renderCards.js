@@ -1,7 +1,7 @@
 'use strict';
-const newImage = `https://via.placeholder.com/200x250/816f9f/000000/?text=`;
+/* const newImage = `https://via.placeholder.com/200x250/816f9f/000000/?text=`;
 const imageNotFound =
-  'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png';
+  'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png'; */
 
 const isFavSeries = (serieId) => {
   const favIndex = favourites.findIndex((fav) => fav.id === serieId);
@@ -18,14 +18,9 @@ const renderCards = (dataList, isResultCard) => {
     if (isResultCard && isFavSeries(item.id)) {
       favClassName = 'favouriteSelect';
     }
-
     html += ` <li class="card js-card-${classCardType} ${favClassName}" id="card-${item.id}">`;
     html += `<div class="frameImage" >`;
-    if (item.image === imageNotFound) {
-      html += ` <img class="card__image" src="${newImage}+${item.title}" alt="Portada de ${item.title}"/>`;
-    } else {
-      html += ` <img class="card__image" src="${item.image}" alt="Portada de ${item.title}"/>`;
-    }
+    html += ` <img class="card__image" src="${item.image}" alt="Portada de ${item.title}"/>`;
     html += `</div>`;
     html += ` <h3 class="card__title3">${item.title}</h3>`;
     if (!isResultCard) {

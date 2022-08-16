@@ -30,11 +30,21 @@ const handleClickSearch = (ev) => {
   fetch(`https://api.jikan.moe/v4/anime?q=${nameUserSerie}`)
     .then((response) => response.json())
     .then((json) => {
-      seriesSearch = json.data.map(({ mal_id, title, images }) => ({
-        id: mal_id,
-        title: title,
-        image: images.jpg.image_url,
-      }));
+      seriesSearch = json.data.map(({ mal_id, title, images }) => {
+        const imageNotFound =
+          'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png';
+        let newImage = '';
+        if (images.jpg.image_url === imageNotFound) {
+          newImage = `https://via.placeholder.com/256x256/816f9f/000000/?text=${title}`;
+        } else {
+          newImage = images.jpg.image_url;
+        }
+        return {
+          id: mal_id,
+          title: title,
+          image: newImage,
+        };
+      });
 
       if (seriesSearch.length === 0) {
         resultsSearch.innerHTML = '';
