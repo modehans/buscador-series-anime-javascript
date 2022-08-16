@@ -3,6 +3,8 @@
 const userInput = document.querySelector('.js_userInput');
 const buttonSearch = document.querySelector('.js_buttonSearch');
 const resultsSearch = document.querySelector('.js_resultsSearch');
+const resultNotFound = document.querySelector('.js_searchNotFound');
+const buttonClean = document.querySelector('.js_buttonDeleteSearch');
 const favouriteList = document.querySelector('.js_favouriteList');
 const buttonDeleteAllFav = document.querySelector('.js_buttonDeleteFavourites');
 let seriesSearch = [];
@@ -35,8 +37,10 @@ const handleClickSearch = (ev) => {
       }));
 
       if (seriesSearch.length === 0) {
-        resultsSearch.innerHTML = `No se ha encontrado ningún resultado para ${nameUserSerie}.`;
+        resultsSearch.innerHTML = '';
+        resultNotFound.innerHTML = `No se ha encontrado ningún resultado para ${nameUserSerie}.`;
       } else {
+        resultNotFound.innerHTML = '';
         renderCardResult();
       }
     })
@@ -56,6 +60,13 @@ const handleClickFavourite = (ev) => {
   renderFavSeries();
   renderCardResult();
   saveLocalStorage();
+};
+
+const handleClickCleanSearch = (ev) => {
+  ev.preventDefault();
+  userInput.value = '';
+  resultsSearch.innerHTML = '';
+  resultNotFound.innerHTML = '';
 };
 
 const handleEnterKey = (ev) => {
@@ -90,6 +101,7 @@ const iconDeleteListener = () => {
 };
 
 buttonSearch.addEventListener('click', handleClickSearch);
+buttonClean.addEventListener('click', handleClickCleanSearch);
 userInput.addEventListener('keypress', handleEnterKey);
 buttonDeleteAllFav.addEventListener('click', handleDeleteAllFavourites);
 
