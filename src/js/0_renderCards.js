@@ -1,7 +1,4 @@
 'use strict';
-/* const newImage = `https://via.placeholder.com/200x250/816f9f/000000/?text=`;
-const imageNotFound =
-  'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png'; */
 
 const isFavSeries = (serieId) => {
   const favIndex = favourites.findIndex((fav) => fav.id === serieId);
